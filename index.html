@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- custom css -->
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <section id="From_Validation">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form_body">
+              <form id="configform">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="password" placeholder="Password">
+                  <span class="pass_strength"></span>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6">
+              <button type="submit" class="btn btn-default" id="configreset">Reset</button>
+          </div>
+          <div class="col-md-6">
+              <button type="submit" class="btn btn-default" id="log_in_admin">Login</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+      $(function(){
+        $("#password").keyup(function(){
+          var count=$(this).val().length;
+        if(count<1){
+            $(".pass_strength").text("");
+            $(".pass_strength").removeClass("red");
+            $(".pass_strength").removeClass("orange");
+            $(".pass_strength").removeClass("green");
+        }
+        else if(count<6){
+            $(".pass_strength").text("Weak*");
+            $(".pass_strength").addClass("red");
+            $(".pass_strength").removeClass("orange");
+            $(".pass_strength").removeClass("green");
+        }
+        else if(count<=10){
+            $(".pass_strength").text("Good*");
+            $(".pass_strength").addClass("orange");
+            $(".pass_strength").removeClass("red");
+            $(".pass_strength").removeClass("green");
+        }
+        else{
+            $(".pass_strength").text("Strong*");
+            $(".pass_strength").addClass("green");
+            $(".pass_strength").removeClass("red");
+            $(".pass_strength").removeClass("orange");
+        }
+
+        })
+      });
+
+       $('#configreset').click(function(){
+            $('#configform')[0].reset();
+      });
+
+$(function() {
+       $('#log_in_admin').button().click(function(event){
+         var usernameTxt = $('#exampleInputEmail1').val();    
+         var passwordTxt = $('#password').val();
+     if (usernameTxt =="admin" || passwordTxt =="admin") {
+        window.location = "https://www.facebook.com/miran.khan1";
+    }
+     else  alert("username or password required !");
+        });
+       });
+
+
+
+    </script>
+
+  </body>
+</html>

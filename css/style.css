@@ -1,0 +1,19 @@
+.form_body{
+	    margin-top: 70px;
+}
+.btn{
+    padding: 11px 260px;
+}
+
+.red{
+    color: red;
+    font-size: 15px;
+}
+.orange{
+    color: orange;
+    font-size: 15px;
+}
+.green{
+    color: seagreen;
+    font-size: 15px;
+}
